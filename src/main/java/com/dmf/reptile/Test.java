@@ -126,7 +126,17 @@ public class Test {
 			//获取代理服务器信息
 			data = getProxy(url);
 			String path = "proxydata.txt";
-			BufferedWriter write = null;
+			
+			FileWriter file;
+			BufferedWriter write=null;
+			try {
+				file = new FileWriter(path);
+				write= new BufferedWriter(file);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			for (Map<String, String> map : data) {
 				// 生成代理服务器对象
 				HttpHost proxy = new HttpHost(map.get("ip").toString(), Integer.parseInt(map.get("port").toString()),
@@ -137,10 +147,7 @@ public class Test {
 					code = doget(links[0],proxy).getCode();
 					if (code==200) {
 						try {
-							FileWriter file = new FileWriter(path);
-							write= new BufferedWriter(file);
-							
-							String proxyStr = map.get("ip")+":"+map.get("port")+":"+map.get("type");
+							String proxyStr = map.get("ip")+":"+map.get("port")+":"+map.get("type")+"\n";
 							write.write(proxyStr);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
