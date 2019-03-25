@@ -118,7 +118,7 @@ public class Test {
 	 * @return
 	 */
 	public static void getAllUseProxy(){
-		for (int i = 11; i < 2768; i++) {
+		for (int i = 0; i < 2768; i++) {
 			//快代理高匿名代理的url规则
 			String url = "https://www.kuaidaili.com/free/inha/" + (i + 1) + "/";
 			
