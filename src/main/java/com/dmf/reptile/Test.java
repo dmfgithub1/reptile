@@ -49,21 +49,21 @@ public class Test {
 
 	public static void main(String[] args) throws Exception {
 
-//		ExecutorService pool = Executors.newFixedThreadPool(3);
-//		for (int i = 0; i < 3; i++) {
-//			pool.execute(new Runnable() {
-//				@Override
-//				public void run() {
-//					System.out.println("线程"+Thread.currentThread().getName()+"启动！");
-//					test();
-//					
-//					
-//				}
-//			});
-//		}
-//		pool.shutdown();
+		ExecutorService pool = Executors.newFixedThreadPool(3);
+		for (int i = 0; i < 3; i++) {
+			pool.execute(new Runnable() {
+				@Override
+				public void run() {
+					System.out.println("线程"+Thread.currentThread().getName()+"启动！");
+					test();
+					
+					
+				}
+			});
+		}
+		pool.shutdown();
 		//test();
-		getAllUseProxy();
+		//getAllUseProxy();
 		
 	}
 
